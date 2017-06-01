@@ -1,3 +1,6 @@
+![logo](images/logo.png)
+
+
 cloacked-pixel
 ==========
 
@@ -29,7 +32,7 @@ All data is encrypted before being embedded into a picture. Encryption is not op
 
 Encrypt and hide an archive:
 
-    $ python lsb.py hide samples/by-wlodek.jpg samples/secret.zip p@$5w0rD
+    $ python lsb.py hide samples/orig.jpg samples/secret.zip p@$5w0rD
     [*] Input image size: 640x425 pixels.
     [*] Usable payload size: 99.61 KB.
     [+] Payload size: 74.636 KB 
@@ -40,16 +43,16 @@ Encrypt and hide an archive:
  
 Original image:
 
-![enter image description here](http://cyberinc.co.uk/wp-content/uploads/2014/09/by-wlodek.jpg)
+![original image](images/orig.jpg)
 
 Image with 75k archive embedded:
 
-![enter image description here](http://cyberinc.co.uk/wp-content/uploads/2014/09/by-wlodek.jpg-stego.png)
+![Embedded archive](images/stego.jpg)
  
 Extract
 -------
 
-    $ python lsb.py extract samples/by-wlodek.jpg-stego.png out p@$5w0rD 
+    $ python lsb.py extract samples/orig.jpg-stego.png out p@$5w0rD 
     [+] Image size: 640x425 pixels.
     [+] Written extracted data to out.
     
@@ -65,19 +68,19 @@ A simple way to detect tampering with least significant bits of images is based 
 
 **Example**
 
-![enter image description here](http://cyberinc.co.uk/wp-content/uploads/2014/09/castle-300x225.jpg)
+![Castle](images/castle.jpg)
 
 Now let’s analyse the original:
 
-    $ python lsb.py analyse samples/castle.jpg
+    $ python lsb.py analyse castle.jpg
 
-![enter image description here](http://cyberinc.co.uk/wp-content/uploads/2014/09/castle-orig-300x226.png)
+![Original iamge analysis](images/analysis-orig.png)
 
 … and now the one containing  our payload:
 
-    $ python lsb.py analyse samples/castle.jpg-stego.png
+    $ python lsb.py analyse castle.jpg-stego.png
 
-![enter image description here](http://cyberinc.co.uk/wp-content/uploads/2014/09/castle-hidden-300x226.png)
+![Stego image analysis](images/analysis-stego.png)
 
 
 Notes
